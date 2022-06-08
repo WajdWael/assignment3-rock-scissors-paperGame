@@ -1,6 +1,14 @@
-let userName = prompt("What's Your Name?");
-let welcome = alert(`Hello, ${userName}.  it's a great Name😍!! Let's play!`);
 console.log("Let's Play");
+
+let userName = prompt("What's Your Name?");
+while (!userName) {
+    alert('Please Enter Your Name!');
+    userName = prompt("What's Your Name?");
+    if (userName) {
+        welcome = alert(`Hello, ${userName}.  it's a great Name😍!! Let's play!`);
+        break;
+    }
+}
 
 // parseInt() -> returns an integer.
 let playerScore = parseInt(0);
