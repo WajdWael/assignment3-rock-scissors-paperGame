@@ -7,4 +7,4 @@
 > - Windows: ctrl+shift+i
 > - Mac: cmd+shift+i
 
-**Vist My Website On:**
+**Vist My Website On: https://wajdwael.github.io/assignment3-rock-scissors-paperGame/**
