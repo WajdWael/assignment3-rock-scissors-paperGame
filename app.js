@@ -5,16 +5,24 @@ console.log("Let's Play");
 // parseInt() -> returns an integer.
 let playerScore = parseInt(0);
 let computerScore = parseInt(0);
+const SELECTION = ['rock', 'paper', 'scissors'];
 
 // takes the user input
+
+let userSelection
+
 const playerSelection = () => {
-    let userSelection = prompt('Enter your Selection 📄, 🪨, or ✂️?').toLowerCase(); // case-insensitive 
+    userSelection = prompt('Enter your Selection 📄, 🪨, or ✂️?').toLowerCase(); // case-insensitive
+    while(!SELECTION.includes(userSelection)) {
+        alert('Please Enter a Vaild Value, You should pick one of 📄, 🪨, or ✂️!');
+        userSelection = prompt('Enter your Selection 📄, 🪨, or ✂️?').toLowerCase(); // case-insensitive
+        if (SELECTION.includes(userSelection)) return false;
+    }
     console.log(`${userName}: ${userSelection}`);
     return userSelection;
 }
 
 const computerSelection = () => {
-    const SELECTION = ['rock', 'paper', 'scissors'];
     let randmSelection = Math.floor(Math.random() * SELECTION.length);
     console.log(`Computer: ${SELECTION[randmSelection]}`);
     return SELECTION[randmSelection];
@@ -72,18 +80,12 @@ function results(playerSelection, computerSelection) {
 function game() {
     for (let i = 0; i < 5; i++) {
         console.log("***********");
-        console.log(`Round: ${i + 1}`)
 
+        console.log(`Round: ${i + 1}`)
         const player = playerSelection();
-        if (player == "rock" || player == "scissors" || player == "paper") {
-            const computer = computerSelection();
-            results(player, computer);
-            console.log(`Computer's score = ${computerScore}, Your Score = ${playerScore}`);
-        } else {
-            alert('Please Enter a Vaild Value, You should pick one of 📄, 🪨, or ✂️!');
-            console.log('Game Over! Try again.');
-            return false;
-        }
+        const computer = computerSelection();
+        results(player, computer);
+        console.log(`Computer's score = ${computerScore}, Your Score = ${playerScore}`);
 
         console.log("***********");
     }
